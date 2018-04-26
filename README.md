@@ -1,7 +1,7 @@
 Mandatory exercise 2
 ==================
 
-**The deadline for this exercise is Friday May 3, 23.59.**
+**The deadline for this exercise is Thursday May 3, 23.59.**
 
 For this **mandatory exercise 2** your should work on **master branch only**.
 
