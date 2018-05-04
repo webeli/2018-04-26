@@ -46,5 +46,20 @@ an unchanged game will be returned.
 */
 
 export const makeMove = (game, pos) => {
-  // ...to be implemented!
+  if (game.line.length > 0) return game;
+  if (game.board[pos] !== 0) return game;
+
+  const currentPlayer = game.state === 'plr1' ? 1 : 2;
+  const board = game.board.map((tile, index) => pos === index ? currentPlayer : tile);
+  const winPatterns = [[0,1,2], [3,4,5], [6,7,8], [0,3,6], [1,4,7], [2,5,8], [0,4,8], [2,4,6]];
+  const line = winPatterns.find(arr => arr.every(val => board[val] === currentPlayer));
+
+  const draw = board.filter(value => value > 0).length === 9;
+  const state = line ? game.state + 'won' : draw ? 'draw' : game.state === 'plr1' ? 'plr2' : 'plr1';
+  
+  return {
+    state,
+    board,
+    line: line || []
+  }
 }

@@ -8,7 +8,16 @@ The component will then render an appropriate message.
 import React from 'react';
 
 export default function Message(props){
+
+  const messages = {
+    plr1: 'Player 1 turn',
+    plr2: 'Player 2 turn',
+    plr1won: 'Player 1 won',
+    plr2won: 'Player 2 won',
+    draw: 'Its a draw, please reset'
+  }
+
   return (
-    <div>To be implemented...</div>
+    <div>{messages[props.state]}</div>
   );
 }
